@@ -10,7 +10,6 @@
 
 		//EntityFramework Section
 		public virtual TipoDocumento TipoDocumento { get; set; }
-
 		public virtual List<ClientePoliza> ClientePolizas { get; set; }
 	}
 }
