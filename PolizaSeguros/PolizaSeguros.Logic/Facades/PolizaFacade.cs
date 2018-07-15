@@ -1,20 +1,16 @@
 ﻿namespace PolizaSeguros.Logic.Facades
 {
-	using PolizaSeguros.Model.DTO;
 	using System;
-	using System.Collections.Generic;
-	using System.Linq;
-	using System.Text;
-	using System.Threading.Tasks;
 	using Microsoft.Practices.Unity;
 	using PolizaSeguros.Common.Unity;
 	using PolizaSeguros.Logic.Interfaces.Services;
 	using PolizaSeguros.Model.Model;
+	using PolizaSeguros.Model.DTO;
 	using Newtonsoft.Json;
 
 	public class PolizaFacade
 	{
-		private GenericResponseDTO CreatePoliza(GenericResponseDTO genericObject)
+		public GenericResponseDTO CreatePoliza(GenericResponseDTO genericObject)
 		{
 			try
 			{
@@ -25,6 +21,24 @@
 					Poliza dto = JsonConvert.DeserializeObject<Poliza>(genericObject.ObjectResponse.ToString());
 					return policyService.Create(dto);
 						
+				}
+			}
+			catch (Exception)
+			{
+
+				throw;
+			}
+		}
+
+		public GenericResponseDTO GetAllTypesRisk()
+		{
+			try
+			{
+				using (var container = new ContainerFactory())
+				{
+					ITipoRiesgoService riskService = container.GetContainer().Resolve<ITipoRiesgoService>();
+
+					return riskService.GetAll();
 				}
 			}
 			catch (Exception)

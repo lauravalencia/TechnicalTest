@@ -41,6 +41,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DTO\GenericResponseDTO.cs" />
+    <Compile Include="DTO\ListDTO.cs" />
+    <Compile Include="DTO\PolizaDataDTO.cs" />
     <Compile Include="Model\Cliente.cs" />
     <Compile Include="Model\ClientePoliza.cs" />
     <Compile Include="Model\Estado.cs" />

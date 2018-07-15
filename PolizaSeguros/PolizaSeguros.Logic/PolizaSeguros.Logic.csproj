@@ -51,9 +51,12 @@
   <ItemGroup>
     <Compile Include="Facades\PolizaFacade.cs" />
     <Compile Include="Interfaces\Repositories\IPolizasRepository.cs" />
+    <Compile Include="Interfaces\Repositories\ITipoRiesgoRepository.cs" />
     <Compile Include="Interfaces\Services\IPolizasService.cs" />
+    <Compile Include="Interfaces\Services\ITipoRiesgoService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\PolizaService.cs" />
+    <Compile Include="Services\TipoRiesgoService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

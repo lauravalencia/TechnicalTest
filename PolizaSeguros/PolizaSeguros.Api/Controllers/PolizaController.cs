@@ -3,21 +3,16 @@
 	using System;
 	using Model.DTO;
 	using System.Threading.Tasks;
-	using System.Web.Http;
 	using PolizaSeguros.Logic.Facades;
+	using System.Web.Mvc;
 
-	[RoutePrefix("api/Policy")]
-	public class PolizaController : ApiController
+	public class PolizaController : Controller
     {
 		public PolizaFacade polizaFacade = new PolizaFacade();
 
-		[HttpGet]
-		[Route("Create")]
-		public GenericResponseDTO Create(GenericResponseDTO genericObject)
+		public ActionResult Create()
 		{
-			if (genericObject == null) throw new ArgumentNullException(nameof(genericObject));
-			//polizaFacade.
-			return EntryToFacade(genericObject);
+			return View();
 		}
 
 	}
