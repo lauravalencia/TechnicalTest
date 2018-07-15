@@ -58,11 +58,23 @@
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="PSContext.cs" />
+    <Compile Include="Repositories\ClientesRepository.cs" />
+    <Compile Include="Repositories\EstadosRepository.cs" />
+    <Compile Include="Repositories\PolizasClientesRepository.cs" />
+    <Compile Include="Repositories\PolizasCubrimientosRepository.cs" />
+    <Compile Include="Repositories\PolizasRepository.cs" />
+    <Compile Include="Repositories\TipoCubrimientoRepository.cs" />
+    <Compile Include="Repositories\TipoDocumentosRepository.cs" />
+    <Compile Include="Repositories\TipoRiesgosRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\PolizaSeguros.Common\PolizaSeguros.Common.csproj">
       <Project>{c734b0f8-703e-4a4d-9932-6ce586c98eb2}</Project>
       <Name>PolizaSeguros.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PolizaSeguros.Logic\PolizaSeguros.Logic.csproj">
+      <Project>{802DB2E1-CAC7-4E8A-891D-E16B5EB55F81}</Project>
+      <Name>PolizaSeguros.Logic</Name>
     </ProjectReference>
     <ProjectReference Include="..\PolizaSeguros.Model\PolizaSeguros.Model.csproj">
       <Project>{4a75a4fb-1d1d-4306-a471-b9dcd3060cab}</Project>

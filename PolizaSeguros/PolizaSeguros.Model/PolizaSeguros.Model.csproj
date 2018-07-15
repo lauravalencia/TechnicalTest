@@ -40,6 +40,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DTO\GenericResponseDTO.cs" />
     <Compile Include="Model\Cliente.cs" />
     <Compile Include="Model\ClientePoliza.cs" />
     <Compile Include="Model\Estado.cs" />
@@ -50,8 +51,6 @@
     <Compile Include="Model\TipoRiesgo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="DTO\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

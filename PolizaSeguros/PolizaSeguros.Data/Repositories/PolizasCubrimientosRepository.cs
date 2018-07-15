@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PolizaSeguros.Logic
+namespace PolizaSeguros.Data.Repositories
 {
-    public class Class1
-    {
-    }
+	class PolizasCubrimientosRepository
+	{
+	}
 }

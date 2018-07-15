@@ -61,11 +61,29 @@ namespace PolizaSeguros.Common.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to No fue posible eliminar el registro.
+        /// </summary>
+        internal static string deleteItemError {
+            get {
+                return ResourceManager.GetString("deleteItemError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to La cadena de conexión no fue encontrada.
         /// </summary>
         internal static string polizaConnectionStringError {
             get {
                 return ResourceManager.GetString("polizaConnectionStringError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to La sección de Unity no fue encontrada.
+        /// </summary>
+        internal static string UnityNotFound {
+            get {
+                return ResourceManager.GetString("UnityNotFound", resourceCulture);
             }
         }
     }
