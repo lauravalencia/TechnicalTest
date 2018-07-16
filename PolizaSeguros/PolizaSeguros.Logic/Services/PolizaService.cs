@@ -25,6 +25,8 @@
 		public GenericResponseDTO Create(Poliza item)
 		{
 
+			_polizaRepository.Create(item);
+
 			return new GenericResponseDTO()
 			{
 				OperationSuccess = true,

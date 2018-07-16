@@ -45,6 +45,12 @@
 			});
 		}
 
+		[HttpGet]
+		public ActionResult Create()
+		{
+			return View();
+		}
+
 		#region Métodos
 
 		private JsonResult SerializeAndSendResponse(object response)

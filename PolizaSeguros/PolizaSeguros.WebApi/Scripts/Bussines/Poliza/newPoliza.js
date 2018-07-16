@@ -65,7 +65,7 @@
         });
     };
     var validateData = function () {
-
+        return true;
     };
     var sendFormAndSerialize = function () {
         var vm =
@@ -81,11 +81,12 @@
             {
                 url: '/Poliza/Create',
                 data: vm,
-                type: utilities.http.methods.POST,
+                type: "POST",
                 errorFunction: function (data) {
                     console.log(data);
                 },
                 successFunction: function (data) {
+                    data = JSON.parse(data);
                     if (data.OperationSuccess) {
                        
 
