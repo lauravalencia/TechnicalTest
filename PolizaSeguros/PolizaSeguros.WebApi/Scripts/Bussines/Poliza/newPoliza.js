@@ -33,7 +33,6 @@
                 errorFunction: function (data) {
                     console.log(data);
                     var msg = "Ha ocurrido un error, comunicarse con el administrador";
-                    window.location.href = "/";
                 },
                 successFunction: function (data) {
                     if (data.OperationSuccess) {
@@ -69,7 +68,34 @@
 
     };
     var sendFormAndSerialize = function () {
-       
+        var vm =
+            {
+                IdPoliza: 0,
+                NombrePoliza: $('#' + variables.HtmlId.nombrepoliza).val(),
+                DescripcionPoliza: $('#' + variables.HtmlId.descpoliza).val(),
+                FechaInicioVigencia: $('#' + variables.HtmlId.fechavigencia).val(),
+                PrecioPoliza: $('#' + variables.HtmlId.precio).val(),
+                IdTipoRiesgo: $('#' + variables.HtmlId.selectTipoRiesgo).val()
+            }
+        utilities.callAjaxPost(
+            {
+                url: '/Poliza/Create',
+                data: vm,
+                type: utilities.http.methods.POST,
+                errorFunction: function (data) {
+                    console.log(data);
+                },
+                successFunction: function (data) {
+                    if (data.OperationSuccess) {
+                       
+
+                    }
+                    else if (!data.OperationSuccess && data.ErrorMessage !== null) {
+                        console.log(data.ErrorMessage);
+                        
+                    }
+                }
+            });
     };
     return {
         init: init,

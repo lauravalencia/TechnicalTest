@@ -10,16 +10,14 @@
 
 	public class PolizaFacade
 	{
-		public GenericResponseDTO CreatePoliza(GenericResponseDTO genericObject)
+		public GenericResponseDTO CreatePoliza(Poliza vm)
 		{
 			try
 			{
 				using (var container = new ContainerFactory())
 				{
 					IPolizasService policyService = container.GetContainer().Resolve<IPolizasService>();
-
-					Poliza dto = JsonConvert.DeserializeObject<Poliza>(genericObject.ObjectResponse.ToString());
-					return policyService.Create(dto);
+					return policyService.Create(vm);
 						
 				}
 			}
