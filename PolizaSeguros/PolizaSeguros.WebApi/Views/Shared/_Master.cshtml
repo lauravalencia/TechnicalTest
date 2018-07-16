@@ -1,0 +1,41 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title></title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+	@Styles.Render("~/Content/polizas")
+</head>
+<body>
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarColor01">
+			<ul class="navbar-nav mr-auto">
+				<li class="nav-item active">
+					@Html.ActionLink("Home", "Index", "Poliza", null, new { @class = "nav-link" })
+				</li>
+				<li class="nav-item">
+					@Html.ActionLink("Crear póliza", "Create", "Poliza", null, new { @class = "nav-link" })
+				</li>
+				<li class="nav-item">
+					@Html.ActionLink("Listado de pólizas", "Index", "Poliza", null, new { @class = "nav-link" })
+				</li>
+				<li class="nav-item">
+					@Html.ActionLink("Administrar pólizas", "Index", "PolizaClientes", null, new { @class = "nav-link" })
+				</li>
+			</ul>
+		</div>
+	</nav>
+	<div class="container">
+		<div class="wrap">
+			@RenderBody()
+		</div>
+	</div>
+		@Scripts.Render("~/bundles/jquery")
+		@Scripts.Render("~/bundles/bussines")
+		@RenderSection("scripts", required: false)
+</body>
+</html>

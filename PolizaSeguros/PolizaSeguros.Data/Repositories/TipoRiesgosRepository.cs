@@ -7,7 +7,7 @@
 	using System.Data.Entity.Validation;
 	using System.Linq;
 
-	public class TipoRiesgosRepository
+	public class TipoRiesgosRepository : ITipoRiesgoRepository
 	{
 		public ICollection<TipoRiesgo> GetAll()
 		{

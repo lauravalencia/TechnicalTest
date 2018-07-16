@@ -18,8 +18,8 @@ namespace PolizaSeguros.Api
 						"~/Scripts/angular.min.js"));
 
 			bundles.Add(new ScriptBundle("~/bundles/angularPolicy")
-				.IncludeDirectory("~/Scripts/Controllers", "*.js")
-				.Include("~/Scripts/App/AppModulePolicy.js"));
+				.IncludeDirectory("~/Scripts/Polizas/Controllers", "*.js")
+				.Include("~/Scripts/Polizas/App/AppModulePolicy.js"));
 			// Use the development version of Modernizr to develop with and learn from. Then, when you're
 			// ready for production, use the build tool at https://modernizr.com to pick only the tests you need.
 			bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(

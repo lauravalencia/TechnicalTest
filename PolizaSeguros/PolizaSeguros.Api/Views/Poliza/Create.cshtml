@@ -26,7 +26,7 @@
 	</div>
 	<div class="wrap-input">
 		<span class="label-input">Tipo riesgo *</span>
-		<select></select>
+		<select ng-options="tipoRiesgo.Id as tipoRiesgo.Name for tipoRiesgo in tipoRiesgos"></select>
 	</div>
 
 	<div class="container-form-btn">
@@ -35,10 +35,9 @@
 			<button class="btn btn-primary">
 				Guardar
 			</button>
+			<button class="btn btn-secondary">
+				Cancelar
+			</button>
 		</div>
 	</div>
 </form>
-@section Scripts {
-	@Scripts.Render("~/bundles/angular");
-	@Scripts.Render("~/bundles/angularPolicy")
-}

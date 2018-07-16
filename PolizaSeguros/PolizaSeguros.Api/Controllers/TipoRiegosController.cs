@@ -1,15 +1,14 @@
-﻿using PolizaSeguros.Logic.Facades;
-using PolizaSeguros.Model.DTO;
-using PolizaSeguros.Model.Model;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Http;
-using System.Web.Http.Results;
-
-namespace PolizaSeguros.Api.Controllers
+﻿namespace PolizaSeguros.Api.Controllers
 {
+	using PolizaSeguros.Logic.Facades;
+	using PolizaSeguros.Model.DTO;
+	using PolizaSeguros.Model.Model;
+	using System;
+	using System.Collections.Generic;
+	using System.Web.Http;
+	using System.Web.Http.Results;
+
+	//[Authorize]
 	[RoutePrefix("api/RiskType")]
 	public class TipoRiegosController : ApiController
     {
