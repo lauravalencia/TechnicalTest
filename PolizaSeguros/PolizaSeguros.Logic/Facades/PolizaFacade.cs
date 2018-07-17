@@ -45,5 +45,23 @@
 				throw;
 			}
 		}
+
+		public GenericResponseDTO GetAllTypesCoverage()
+		{
+			try
+			{
+				using (var container = new ContainerFactory())
+				{
+					ITipoCubrimientoService coverageService = container.GetContainer().Resolve<ITipoCubrimientoService>();
+
+					return coverageService.GetAll();
+				}
+			}
+			catch (Exception)
+			{
+
+				throw;
+			}
+		}
 	}
 }

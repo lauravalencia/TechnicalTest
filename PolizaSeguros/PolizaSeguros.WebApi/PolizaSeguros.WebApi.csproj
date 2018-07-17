@@ -168,6 +168,7 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\PolizaController.cs" />
+    <Compile Include="Controllers\TipoCoberturaController.cs" />
     <Compile Include="Controllers\TipoRiesgosController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -241,6 +242,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
+    <Folder Include="Views\TipoCobertura\" />
     <Folder Include="Views\TipoRiesgos\" />
   </ItemGroup>
   <ItemGroup>

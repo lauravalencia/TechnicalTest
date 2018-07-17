@@ -9,5 +9,6 @@
 	public class PolizaDataDTO
 	{
 		public ICollection<ListDTO> TiposRiesgo { get; set; }
+		public ICollection<ListDTO> TiposCubrimiento { get; set; }
 	}
 }

@@ -8,7 +8,8 @@
                     descpoliza: "descpoliza",
                     fechavigencia: "fechavigencia",
                     precio: "precio",
-                    selectTipoRiesgo:"selectTipoRiesgo"
+                    selectTipoRiesgo: "selectTipoRiesgo",
+                    selectTipoCubrimiento: "selectTipoCubrimiento"
 
                 },
             htmlStyles:
@@ -24,6 +25,7 @@
 
         submitForm();
         setRiskTypes();
+        setCoverageTypes();
     };
     var setRiskTypes = function () {
         utilities.callAjax(
@@ -45,6 +47,34 @@
                         } 
 
                         selectRiskType.append(option);
+
+                    }
+                    else if (!data.OperationSuccess && data.ErrorMessage !== null) {
+                        console.log(data.ErrorMessage);
+                    }
+                }
+            });
+    };
+
+    var setCoverageTypes = function () {
+        utilities.callAjax(
+            {
+                url: '/api/CoverageType/GetAll',
+                type: "GET",
+                errorFunction: function (data) {
+                    console.log(data);
+                    var msg = "Ha ocurrido un error, comunicarse con el administrador";
+                },
+                successFunction: function (data) {
+                    if (data.OperationSuccess) {
+                        var select = $("#" + variables.HtmlId.selectTipoCubrimiento);
+                        var option = '';
+
+                        for (var i = 0; i < data.ObjectResponse.TiposCubrimiento.length; i++) {
+                            option += '<option value="' + data.ObjectResponse.TiposCubrimiento[i].Id + '">' + data.ObjectResponse.TiposCubrimiento[i].Name + '</option>';
+                        }
+
+                        select.append(option);
 
                     }
                     else if (!data.OperationSuccess && data.ErrorMessage !== null) {
