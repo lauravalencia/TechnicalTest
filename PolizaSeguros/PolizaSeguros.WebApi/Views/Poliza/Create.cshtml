@@ -1,7 +1,7 @@
 ﻿@{
 	Layout = "~/Views/Shared/_Master.cshtml";
 }
-<form class="form validate-form" id="form-main">
+@*<form class="form validate-form" id="form-main">
 	<span class="form-title">
 		Nueva póliza
 	</span>
@@ -40,13 +40,20 @@
 			@Html.ActionLink("Cancelar", "Index", "Poliza", null, new { @class = "btn btn-secondary" })
 		</div>
 	</div>
-</form>
+</form>*@
 @section Scripts {
-	@Scripts.Render("~/bundles/jqueryval")
-	@Scripts.Render("~/bundles/bussines")
-	<script>
-     $(document).ready(function () {
-		 newPoliza.init();
-      });
-	</script>
+	<script type="text/javascript" src="~/Scripts/libs/runtime.js"></script>
+	<script type="text/javascript" src="~/Scripts/libs/polyfills.js"></script>
+	<script type="text/javascript" src="~/Scripts/libs/styles.js"></script>
+	<script type="text/javascript" src="~/Scripts/libs/vendor.js"></script>
+	<script type="text/javascript" src="~/Scripts/libs/main.js"></script>
+	@*@Scripts.Render("~/bundles/jqueryval")
+		@Scripts.Render("~/bundles/bussines")
+		<script>
+		 $(document).ready(function () {
+			 newPoliza.init();
+		  });
+		</script>*@
 }
+<app-root></app-root>
+
