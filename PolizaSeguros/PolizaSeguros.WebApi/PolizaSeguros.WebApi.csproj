@@ -236,6 +236,8 @@
     <Content Include="Scripts\modernizr-2.8.3.js" />
     <Content Include="src\app\app.component.css" />
     <Content Include="src\app\app.component.html" />
+    <Content Include="src\app\polizas\polizas.component.css" />
+    <Content Include="src\app\polizas\polizas.component.html" />
     <Content Include="src\favicon.ico" />
     <Content Include="src\index.html" />
     <Content Include="src\karma.conf.js" />
@@ -309,6 +311,11 @@
     <TypeScriptCompile Include="src\app\app.component.spec.ts" />
     <TypeScriptCompile Include="src\app\app.component.ts" />
     <TypeScriptCompile Include="src\app\app.module.ts" />
+    <TypeScriptCompile Include="src\app\services\polizas.service.spec.ts" />
+    <TypeScriptCompile Include="src\app\services\polizas.service.ts" />
+    <TypeScriptCompile Include="src\app\polizas\polizas.component.spec.ts" />
+    <TypeScriptCompile Include="src\app\polizas\polizas.component.ts" />
+    <TypeScriptCompile Include="src\app\utilities\global.ts" />
     <TypeScriptCompile Include="src\environments\environment.prod.ts" />
     <TypeScriptCompile Include="src\environments\environment.ts" />
     <TypeScriptCompile Include="src\main.ts" />
