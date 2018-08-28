@@ -41,7 +41,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<!--The content below is only a placeholder and can be replaced.-->\n<div style=\"text-align:center\">\n  <h1>\n    Welcome to {{ title }}!\n  </h1>\n  <img width=\"300\" alt=\"Angular Logo\" src=\"data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==\">\n</div>\n<h2>Here are some links to help you start: </h2>\n<ul>\n  <li>\n    <h2><a target=\"_blank\" rel=\"noopener\" href=\"https://angular.io/tutorial\">Tour of Heroes</a></h2>\n  </li>\n  <li>\n    <h2><a target=\"_blank\" rel=\"noopener\" href=\"https://github.com/angular/angular-cli/wiki\">CLI Documentation</a></h2>\n  </li>\n  <li>\n    <h2><a target=\"_blank\" rel=\"noopener\" href=\"https://blog.angular.io/\">Angular blog</a></h2>\n  </li>\n</ul>\n\n"
+module.exports = "<!--The content below is only a placeholder and can be replaced.-->\n<app-polizas></app-polizas>\n"
 
 /***/ }),
 
@@ -98,25 +98,169 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 Object.defineProperty(exports, "__esModule", { value: true });
 var platform_browser_1 = __webpack_require__(/*! @angular/platform-browser */ "./node_modules/@angular/platform-browser/fesm5/platform-browser.js");
 var core_1 = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+var http_1 = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
 var app_component_1 = __webpack_require__(/*! ./app.component */ "./src/app/app.component.ts");
+var polizas_component_1 = __webpack_require__(/*! ./polizas/polizas.component */ "./src/app/polizas/polizas.component.ts");
+var polizas_service_1 = __webpack_require__(/*! ./services/polizas.service */ "./src/app/services/polizas.service.ts");
 var AppModule = /** @class */ (function () {
     function AppModule() {
     }
     AppModule = __decorate([
         core_1.NgModule({
             declarations: [
-                app_component_1.AppComponent
+                app_component_1.AppComponent,
+                polizas_component_1.PolizasComponent
             ],
             imports: [
+                http_1.HttpClientModule,
                 platform_browser_1.BrowserModule
             ],
-            providers: [],
+            providers: [polizas_service_1.PolizasService],
             bootstrap: [app_component_1.AppComponent]
         })
     ], AppModule);
     return AppModule;
 }());
 exports.AppModule = AppModule;
+
+
+/***/ }),
+
+/***/ "./src/app/polizas/polizas.component.css":
+/*!***********************************************!*\
+  !*** ./src/app/polizas/polizas.component.css ***!
+  \***********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = ""
+
+/***/ }),
+
+/***/ "./src/app/polizas/polizas.component.html":
+/*!************************************************!*\
+  !*** ./src/app/polizas/polizas.component.html ***!
+  \************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "<form class=\"form validate-form\" id=\"form-main\">\r\n\t<span class=\"form-title\">\r\n\t\tNueva p�liza\r\n\t</span>\r\n\r\n\t<div class=\"wrap-input\">\r\n\t\t<span class=\"label-input\">Nombre p�liza *</span>\r\n\t\t<input class=\"input\" type=\"text\" id=\"nombrepoliza\" placeholder=\"Ingrese el nombre\">\r\n\t</div>\r\n\r\n\t<div class=\"wrap-input\">\r\n\t\t<span class=\"label-input\">Descripci�n de la p�liza *</span>\r\n\t\t<textarea class=\"input\" id=\"descpoliza\" placeholder=\"Ingrese la descripci�n\"></textarea>\r\n\t</div>\r\n\t<div class=\"wrap-input\">\r\n\t\t<span class=\"label-input\">Tipo cubrimiento *</span>\r\n\t\t<select multiple id=\"selectTipoCubrimiento\"></select>\r\n\t</div>\r\n\r\n\t<div class=\"wrap-input\">\r\n\t\t<span class=\"label-input\">Fecha inicio vigencia *</span>\r\n\t\t<input type=\"date\" id=\"fechavigencia\" />\r\n\t</div>\r\n\t<div class=\"wrap-input\">\r\n\t\t<span class=\"label-input\">Precio de la p�liza *</span>\r\n\t\t<input type=\"number\" id=\"precio\" />\r\n\t</div>\r\n\t<div class=\"wrap-input\">\r\n\t\t<span class=\"label-input\">Tipo riesgo *</span>\r\n\t\t<select id=\"selectTipoRiesgo\" *ngFor=\"let risk of risks\">\r\n\t\t\t<option value=\"{{risk.IdTipoRiesgo}}\">{{risk.NombreTipoRiesgo}}</option>\r\n\t\t</select>\r\n\t</div>\r\n\r\n\t<div class=\"container-form-btn\">\r\n\t\t<div class=\"wrap-form-btn\">\r\n\t\t\t<div class=\"form-bgbtn\"></div>\r\n\t\t\t<input type=\"submit\" value=\"Guardar\" class=\"btn btn-primary\" />\r\n\t\t\t<input type=\"submit\" value=\"Cancelar\" class = \"btn btn-secondary\" />\r\n\t\t</div>\r\n\t</div>\r\n</form>"
+
+/***/ }),
+
+/***/ "./src/app/polizas/polizas.component.ts":
+/*!**********************************************!*\
+  !*** ./src/app/polizas/polizas.component.ts ***!
+  \**********************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var core_1 = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+var polizas_service_1 = __webpack_require__(/*! ../services/polizas.service */ "./src/app/services/polizas.service.ts");
+var global_1 = __webpack_require__(/*! ../utilities/global */ "./src/app/utilities/global.ts");
+var PolizasComponent = /** @class */ (function () {
+    function PolizasComponent(_polizasService) {
+        this._polizasService = _polizasService;
+    }
+    PolizasComponent.prototype.ngOnInit = function () {
+        this.LoadRisks();
+    };
+    PolizasComponent.prototype.LoadRisks = function () {
+        var _this = this;
+        this._polizasService.getRisk(global_1.Global.RISKS_ENDPOINT)
+            .subscribe(function (risks) { return _this.risk = risks; }, function (error) { return _this.msg = error; });
+    };
+    PolizasComponent = __decorate([
+        core_1.Component({
+            selector: 'app-polizas',
+            template: __webpack_require__(/*! ./polizas.component.html */ "./src/app/polizas/polizas.component.html"),
+            styles: [__webpack_require__(/*! ./polizas.component.css */ "./src/app/polizas/polizas.component.css")]
+        }),
+        __metadata("design:paramtypes", [polizas_service_1.PolizasService])
+    ], PolizasComponent);
+    return PolizasComponent;
+}());
+exports.PolizasComponent = PolizasComponent;
+
+
+/***/ }),
+
+/***/ "./src/app/services/polizas.service.ts":
+/*!*********************************************!*\
+  !*** ./src/app/services/polizas.service.ts ***!
+  \*********************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var core_1 = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+var http_1 = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
+var rxjs_1 = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm5/index.js");
+var operators_1 = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm5/operators/index.js");
+var PolizasService = /** @class */ (function () {
+    function PolizasService(_http) {
+        this._http = _http;
+    }
+    PolizasService.prototype.getRisk = function (url) {
+        return this._http.get(url).pipe(operators_1.catchError(this.handleError));
+    };
+    PolizasService.prototype.handleError = function (error) {
+        if (error.error instanceof ErrorEvent) {
+            console.error('Ha ocurrido un error:', error.error.message);
+        }
+        return rxjs_1.throwError('Ha ocurrido un error interno. Intente m�s tarde.');
+    };
+    PolizasService = __decorate([
+        core_1.Injectable(),
+        __metadata("design:paramtypes", [http_1.HttpClient])
+    ], PolizasService);
+    return PolizasService;
+}());
+exports.PolizasService = PolizasService;
+
+
+/***/ }),
+
+/***/ "./src/app/utilities/global.ts":
+/*!*************************************!*\
+  !*** ./src/app/utilities/global.ts ***!
+  \*************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+var Global = /** @class */ (function () {
+    function Global() {
+    }
+    Global.RISKS_ENDPOINT = 'http://localhost:51333/api/RiskType/GetAll';
+    return Global;
+}());
+exports.Global = Global;
 
 
 /***/ }),

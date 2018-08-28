@@ -47,9 +47,9 @@
 					ObjectResponse = polizaDataDTO
 				};
 			}
-			catch (Exception)
+			catch (Exception ex)
 			{
-
+				var message = ex.StackTrace;
 				throw;
 			}
 		}

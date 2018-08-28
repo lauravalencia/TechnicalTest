@@ -213,6 +213,7 @@
     <Content Include="Content\CustomSite\fonts\Raleway-ThinItalic.ttf" />
     <Content Include="angular.json" />
     <Content Include="package.json" />
+    <Content Include="proxy.conf.json" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\Bussines\Poliza\newPoliza.js" />
     <Content Include="Scripts\Bussines\utilities.js" />

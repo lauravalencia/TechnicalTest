@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PolizasService } from '../services/polizas.service';
+import { Observable } from 'rxjs';
 import { Global } from '../utilities/global';
 
 @Component({
@@ -10,14 +11,17 @@ import { Global } from '../utilities/global';
 export class PolizasComponent implements OnInit {
 
     msg: string;
+    risks: Array<any>;
 
     constructor(private _polizasService: PolizasService) { }
 
-  ngOnInit() {
-  }
+    ngOnInit(): void {
+       this.LoadRisks();
+    }
+
     LoadRisks(): void {
-        this._polizasService.getRisks(Global.RISKS_ENDPOINT)
-            .subscribe(risks => 
-                error => this.msg = <any>error);
+        this._polizasService.getRisk(Global.RISKS_ENDPOINT)
+            .subscribe(risks => { this.risks = risks.OprationSuccess ? risks.ObjectResponse.TiposRiesgo : [] },
+                error => this.msg = <any>error); 
     }
 }

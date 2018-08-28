@@ -1,3 +1,45 @@
-<p>
-  polizas works!
-</p>
+﻿<head>
+	<meta charset="utf-8" />
+</head>
+	<form class="form validate-form" id="form-main">
+		<span class="form-title">
+			Nueva póliza
+		</span>
+
+		<div class="wrap-input">
+			<span class="label-input">Nombre póliza *</span>
+			<input class="input" type="text" id="nombrepoliza" placeholder="Ingrese el nombre">
+		</div>
+
+		<div class="wrap-input">
+			<span class="label-input">Descripción de la póliza *</span>
+			<textarea class="input" id="descpoliza" placeholder="Ingrese la descripción"></textarea>
+		</div>
+		<div class="wrap-input">
+			<span class="label-input">Tipo cubrimiento *</span>
+			<select multiple id="selectTipoCubrimiento"></select>
+		</div>
+
+		<div class="wrap-input">
+			<span class="label-input">Fecha inicio vigencia *</span>
+			<input type="date" id="fechavigencia" />
+		</div>
+		<div class="wrap-input">
+			<span class="label-input">Precio de la póliza *</span>
+			<input type="number" id="precio" />
+		</div>
+		<div class="wrap-input">
+			<span class="label-input">Tipo riesgo *</span>
+			<select id="selectTipoRiesgo">
+				<option *ngFor="let risk of risks" value="{{risk.Id}}">{{risk.Name}}</option>
+			</select>
+		</div>
+
+		<div class="container-form-btn">
+			<div class="wrap-form-btn">
+				<div class="form-bgbtn"></div>
+				<input type="submit" value="Guardar" class="btn btn-primary" />
+				<input type="submit" value="Cancelar" class="btn btn-secondary" />
+			</div>
+		</div>
+	</form>

@@ -1,0 +1,7 @@
+﻿{
+	"/api/RiskType/*": {
+			"target": "http://localhost:51333",
+			"secure": false,
+			"changeOrigin": true
+	}
+}

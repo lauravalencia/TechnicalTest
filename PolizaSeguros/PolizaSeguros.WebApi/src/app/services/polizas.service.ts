@@ -1,20 +1,21 @@
 import { Injectable } from '@angular/core';
-import { Http, Response, Headers } from '@angular/http';
-import { Observable } from 'rxjs';
+import { HttpClient, HttpParams, HttpErrorResponse } from '@angular/common/http';
+import { Observable, throwError } from 'rxjs';
+import { catchError } from 'rxjs/operators';
 
 @Injectable()
 export class PolizasService {
 
-  constructor(private http: Http) { }
+    constructor(private _http: HttpClient) { }
 
-    getRisks(url: string) {
-        return this._http.get(url)
-            .map((response: Response) => response.json())
-            .catch(this.handleError);
-    }
+    getRisk(url: string): Observable<any> {
+        return this._http.get(url).pipe(catchError(this.handleError));
+    }  
 
-    private handleError(error: Response) {
-        console.error(error);
-        return throw new Error(error.json().error || 'Server error');
-    }
+    private handleError(error: HttpErrorResponse) {
+        if (error.error instanceof ErrorEvent) { 
+            console.error('Ha ocurrido un error:', error.error.message);
+        }
+        return throwError('Ha ocurrido un error interno. Intente más tarde.');
+    }  
 }
